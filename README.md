@@ -1,6 +1,8 @@
 # BST270 Final Project
 
-# Marriage
+# Data
+
+(Content revised from [https://github.com/fivethirtyeight/data/tree/master/marriage]) 
 
 This folder contains data behind the story [Marriage Isn’t Dead — Yet](http://fivethirtyeight.com/features/marriage-isnt-dead-yet/).
 
@@ -16,8 +18,6 @@ Header | Description
 `HS` | High school graduate or less (EDUCD < 65)
 `SC` | Some college (EDUCD >= 65 & <= 100)
 `BAp` | Bachelor's degree or more (EDUCD > 100)
-`BAo` | Bachelor's degree, no graduate degre (EDUCD > 100 & <= 113)
-`GD` | Graduate degree (EDUCD > 113)
 `White` | Non-Hispanic white
 `Black` | Black or African-American
 `Hisp` | Hispanic of any race
