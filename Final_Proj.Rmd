@@ -15,15 +15,59 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
 ```{r}
-
+# read in data
+both_sexes_df <- read.csv("./data/both_sexes.csv")
+divorce_df <- read.csv("./data/divorce.csv")
+men_df <- read.csv("./data/men.csv")
+women_df <- read.csv("./data/women.csv")
 ```
 
-## Including Plots
+```{r}
+# Filter men.csv
+both_sexes_edu_filt_df <- both_sexes_df[, c("year", "HS_2534", 
+                                            "SC_2534", "BAp_2534")]
+both_sexes_edu_filt_df$HS_2534 <- 1- both_sexes_edu_filt_df$HS_2534 
+both_sexes_edu_filt_df$SC_2534 <- 1- both_sexes_edu_filt_df$SC_2534 
+both_sexes_edu_filt_df$BAp_2534 <- 1- both_sexes_edu_filt_df$BAp_2534 
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+both_sexes_race_eth_filt_df <- both_sexes_df[, c("year", "White_2534", 
+                                                 "Black_2534", "Hisp_2534")]
+both_sexes_race_eth_filt_df$White_2534 <- 1- both_sexes_race_eth_filt_df$White_2534 
+both_sexes_race_eth_filt_df$Black_2534 <- 1- both_sexes_race_eth_filt_df$Black_2534 
+both_sexes_race_eth_filt_df$Hisp_2534 <- 1- both_sexes_race_eth_filt_df$Hisp_2534 
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+## Figure 1:
+
+```{r}
+
+matplot(both_sexes_edu_filt_df$year, cbind(both_sexes_edu_filt_df$HS_2534, 
+                                           both_sexes_edu_filt_df$SC_2534, 
+                                           both_sexes_edu_filt_df$BAp_2534), 
+        type = "l", lty = 1,lwd=3, 
+        col = c("maroon", "magenta", "pink"), xlab = "Year", 
+        ylab = "Marriage Rate", main = "Marriage Rates by Education")
+grid(nx = NULL, ny = NULL,
+     lty = 1,
+     col = "gray", 
+     lwd = 0.5)
+legend("topright", legend = c("High School or Less", "Some College", 
+                              "College Graduates"), 
+       col = c("maroon", "magenta", "pink"), 
+       lty = 1, lwd=3)
+```
+```{r}
+matplot(both_sexes_race_eth_filt_df$year, cbind(both_sexes_race_eth_filt_df$White_2534,
+                                           both_sexes_race_eth_filt_df$Black_2534, 
+                                           both_sexes_race_eth_filt_df$Hisp_2534), 
+        type = "l", lty = 1,lwd=3, 
+        col = c("forestgreen", "darkgreen", "lightgreen"), xlab = "Year", 
+        ylab = "Marriage Rate", main = "Marriage Rates by Race")
+grid(nx = NULL, ny = NULL,
+     lty = 1, 
+     col = "gray", 
+     lwd = 0.5) 
+legend("topright", legend = c("Non-hispanic White", "Black", "Hispanic"), 
+       col = c("forestgreen", "darkgreen", "lightgreen"), 
+       lty = 1, lwd=3)
+```
