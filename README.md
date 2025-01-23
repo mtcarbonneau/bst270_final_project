@@ -21,16 +21,12 @@ Header | Description
 `White` | Non-Hispanic white
 `Black` | Black or African-American
 `Hisp` | Hispanic of any race
-`NE` | New England (REGION == 11)
-`MA` | Mid-Atlantic (REGION == 12)
-`Midwest` | Midwest (REGION == 21-23)
-`South` | South (REGION == 31-34)
-`Mountain` | Mountain West (REGION == 41)
-`Pacific` | Pacific (REGION == 42)
-`poor` | Family income in lowest 25%
-`mid` | Family income in middle 50%
-`rich` | Family income in top 25%
-`work` | Employed 50+ weeks prior year
-`nowork` | Not employed at least 50 weeks prior year
 `nokids_all` | No own children living at home
 `kids_all` | At least one own child living at home
+
+
+Code was run with the following specifications: 
+
+`R version 4.4.2 (2024-10-31)`
+`Platform: aarch64-apple-darwin20`
+`Running under: macOS Sequoia 15.1.1`
