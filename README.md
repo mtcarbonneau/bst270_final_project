@@ -2,7 +2,7 @@
 
 # Data
 
-(Content revised from [https://github.com/fivethirtyeight/data/tree/master/marriage]) 
+(Content revised from [ReadMe](https://github.com/fivethirtyeight/data/tree/master/marriage) ).
 
 This folder contains data behind the story [Marriage Isn’t Dead — Yet](http://fivethirtyeight.com/features/marriage-isnt-dead-yet/).
 
