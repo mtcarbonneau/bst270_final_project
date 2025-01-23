@@ -24,6 +24,9 @@ Header | Description
 `nokids_all` | No own children living at home
 `kids_all` | At least one own child living at home
 
+# To Run
+The replication of the FiveThirtyEight analysis can be found as the R Markdown file `Final_Proj.Rmd`. 
+
 
 Code was run with the following specifications: 
 
