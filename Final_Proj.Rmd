@@ -10,6 +10,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Reproducing "Marriage Isn’t Dead — Yet" Figures
 
+The aim is to reproduce figures presented in the article published on FiveThirtyEight: \textit{Marriage Isn’t Dead — Yet}. The article is available here: https://fivethirtyeight.com/features/marriage-isnt-dead-yet/.
+
 Data are available via on the FiveThirtyEight GitHub (https://github.com/fivethirtyeight/data/tree/master/marriage). First we load the data:
 
 ```{r}
@@ -25,7 +27,9 @@ We first use the `both_sexes_df`.
 
 Next we simplify dataframes by removing unneeded columns (ie. columns unrelated to education level and race/ethnicity). We also drop na entries and convert divorce rates to marriage rates.
 
-The columns we use are `HS_2534 - High school graduate or less (EDUCD < 65), age between 25 and 34`, `SC_2534 - Some college (EDUCD >= 65 & <= 100), age between 25 and 34`, and `BAp_2534 - Bachelor's degree or more (EDUCD > 100), age between 25 and 34` for the education plot and `White_2534 - Non-Hispanic white, age between 25 and 34`, `Black_2534 - Black or African-American, age between 25 and 34`, and `Hisp_2534 - Hispanic of any race` for the race/ethnicity plot.
+The columns we use are 
+`HS_2534 - High school graduate or less (EDUCD < 65), age between 25 and 34`,  `SC_2534 - Some college (EDUCD >= 65 & <= 100), age between 25 and 34`, and `BAp_2534 - Bachelor's degree or more (EDUCD > 100), age between 25 and 34` 
+for the education plot and  `White_2534 - Non-Hispanic white, age between 25 and 34`, `Black_2534 - Black or African-American, age between 25 and 34`, and `Hisp_2534 - Hispanic of any race` for the race/ethnicity plot.
 
 ```{r}
 # Filter both_sexes.csv
@@ -92,16 +96,15 @@ legend("topright", legend = c("Non-hispanic White", "Black", "Hispanic"),
 ```
 
 ## Figure 3: Marriage Rates for Women by Education - Ages 25-34
-RESTART HERE 
-We first use the `women_df`.
 
-The columns we use are `kids_HS_2534 - High school graduate or less (EDUCD < 65), age between 25 and 34`, `SC_2534 - Some college (EDUCD >= 65 & <= 100), age between 25 and 34`, and `BAp_2534 - Bachelor's degree or more (EDUCD > 100), age between 25 and 34` for the education plot and `White_2534 - Non-Hispanic white, age between 25 and 34`, `Black_2534 - Black or African-American, age between 25 and 34`, and `Hisp_2534 - Hispanic of any race` for the race/ethnicity plot.
+We use the `women_df` dataframe here.
 
+The columns we use for women with children's education levels are `kids_HS_2534 - High school graduate or less (EDUCD < 65), age between 25 and 34`, `kids_SC_2534 - Some college (EDUCD >= 65 & <= 100), age between 25 and 34`, and `kids_BAp_2534 - Bachelor's degree or more (EDUCD > 100), age between 25 and 34` and the columns we use for women without children's education levels are `nokids_HS_2534 - High school graduate or less (EDUCD < 65), age between 25 and 34`, `nokids_SC_2534 - Some college (EDUCD >= 65 & <= 100), age between 25 and 34`, and `nokids_BAp_2534 - Bachelor's degree or more (EDUCD > 100), age between 25 and 34`. 
 
 ```{r}
 # Filter women.csv
 
-# With Children
+# Without Children
 women_df_with_children <- women_df[, c("year", "kids_HS_2534", "kids_BAp_2534")]
 
 # remove na's from kids_HS_2534 and kids_BAp_2534 columns 
@@ -113,7 +116,8 @@ women_df_with_children$kids_HS_2534 <- 1- women_df_with_children$kids_HS_2534
 women_df_with_children$kids_BAp_2534 <- 1 - women_df_with_children$kids_BAp_2534
 
 # Without Children
-women_df_without_children <- women_df[, c("year", "nokids_HS_2534", "nokids_BAp_2534")]
+women_df_without_children <- women_df[, c("year", "nokids_HS_2534", 
+                                          "nokids_BAp_2534")]
 
 # remove na's from nokids_HS_2534 and nokids_BAp_2534 columns 
 women_df_without_children <- women_df_without_children[
@@ -163,15 +167,19 @@ legend("bottomright", legend = c("High School or Less",
 
 ## Figure 4:
 
-### Divorce Rates by Education
+### Divorce Rates by Education - Ages 35-44
+
+We use the `divorce_df` dataframe here.
+
+The columns we use for women with children's education levels are `HS_3544 - High school graduate or less (EDUCD < 65), age between 35 and 44`, `SC_3544 - Some college (EDUCD >= 65 & <= 100), age between 35 and 44`, and `BAp_3544 - Bachelor's degree or more (EDUCD > 100), age between 35 and 44`.
 
 ```{r}
 # Divorce rates
 divorce_edu_df <- divorce_df[,c("year", "HS_3544", "SC_3544", "BAp_3544")]
 divorce_edu_df <- divorce_edu_df[
-                      !is.na(divorce_edu_df$HS_3544) | 
-                      !is.na(divorce_edu_df$SC_3544) | 
-                      !is.na(divorce_edu_df$BAp_3544) ,]
+                            !is.na(divorce_edu_df$HS_3544) | 
+                            !is.na(divorce_edu_df$SC_3544) | 
+                            !is.na(divorce_edu_df$BAp_3544) ,]
 ```
 
 ```{r}
