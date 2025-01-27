@@ -2,7 +2,7 @@
 
 # Data
 
-(Content revised from [ReadMe](https://github.com/fivethirtyeight/data/tree/master/marriage) ).
+(Content revised from [FiveThirtyEight ReadMe](https://github.com/fivethirtyeight/data/tree/master/marriage) ).
 
 This folder contains data behind the story [Marriage Isn’t Dead — Yet](http://fivethirtyeight.com/features/marriage-isnt-dead-yet/).
 
@@ -26,7 +26,6 @@ Header | Description
 
 # To Run
 The replication of the FiveThirtyEight analysis can be found as the R Markdown file `Final_Proj.Rmd`. 
-
 
 Code was run with the following specifications: 
 
