@@ -1,5 +1,7 @@
 # BST270 Final Project
 
+This repository has been created to meet the objectives of the Harvard BST270 final project.
+
 # Objective 
 Reproduce several figures in the FiveThirtyEight article [Marriage Isn’t Dead — Yet](http://fivethirtyeight.com/features/marriage-isnt-dead-yet/).
 
