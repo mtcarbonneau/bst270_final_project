@@ -10,9 +10,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Reproducing "Marriage Isn’t Dead — Yet" Figures
 
-The aim is to reproduce figures presented in the article published on FiveThirtyEight: \textit{Marriage Isn’t Dead — Yet}. The article is available here: https://fivethirtyeight.com/features/marriage-isnt-dead-yet/.
+The aim is to reproduce figures presented in the article published on FiveThirtyEight: \textit{Marriage Isn’t Dead — Yet}. The article is available here: https://fivethirtyeight.com/features/marriage-isnt-dead-yet/. Specifically, we replicate the first, third, and fourth figures in the article.
 
-Data are available via on the FiveThirtyEight GitHub (https://github.com/fivethirtyeight/data/tree/master/marriage), but are also included in the `data` folder of this repo. First we load the data:
+Data are available via on the FiveThirtyEight GitHub (https://github.com/fivethirtyeight/data/tree/master/marriage), but are also included in the `data` folder of this repo. There are no R packages required to run this code. First we load the data:
 
 ```{r}
 # read in data
@@ -64,13 +64,13 @@ both_sexes_race_eth_filt_df$Hisp_2534 <- 1- both_sexes_race_eth_filt_df$Hisp_253
 
 ```{r}
 # Plot Marriage Rates by Education Level
-matplot(both_sexes_edu_filt_df$year, cbind(both_sexes_edu_filt_df$HS_2534, 
-                                           both_sexes_edu_filt_df$SC_2534, 
-                                           both_sexes_edu_filt_df$BAp_2534), 
+matplot(both_sexes_edu_filt_df$year, cbind(both_sexes_edu_filt_df$HS_2534*100, 
+                                           both_sexes_edu_filt_df$SC_2534*100, 
+                                           both_sexes_edu_filt_df$BAp_2534*100), 
         type = "l", lty = 1,lwd=3, 
         col = c("maroon", "magenta", "pink"), xlab = "Year", 
-        ylab = "Marriage Rate", main = "Marriage Rates by Education",
-        ylim = c(0,1))
+        ylab = "Marriage Rate (%)", main = "Marriage Rates by Education",
+        ylim = c(0,100))
 grid(nx = NULL, ny = NULL,
      lty = 1,
      col = "gray", 
@@ -82,13 +82,14 @@ legend("topright", legend = c("High School or Less", "Some College",
 ```
 ```{r}
 # Plot Marriage Rates by Race/Ethnicity
-matplot(both_sexes_race_eth_filt_df$year, cbind(both_sexes_race_eth_filt_df$White_2534,
-                                           both_sexes_race_eth_filt_df$Black_2534, 
-                                           both_sexes_race_eth_filt_df$Hisp_2534), 
+matplot(both_sexes_race_eth_filt_df$year, 
+        cbind(both_sexes_race_eth_filt_df$White_2534*100,
+              both_sexes_race_eth_filt_df$Black_2534*100, 
+              both_sexes_race_eth_filt_df$Hisp_2534*100), 
         type = "l", lty = 1,lwd=3, 
         col = c("forestgreen", "darkgreen", "lightgreen"), xlab = "Year", 
-        ylab = "Marriage Rate", main = "Marriage Rates by Race",
-        ylim = c(0,1))
+        ylab = "Marriage Rate (%)", main = "Marriage Rates by Race",
+        ylim = c(0,100))
 grid(nx = NULL, ny = NULL,
      lty = 1, 
      col = "gray", 
@@ -136,12 +137,12 @@ women_df_without_children$nokids_BAp_2534 <- 1 - women_df_without_children$nokid
 
 ```{r}
 # Plot marriage rates for women with children
-matplot(women_df_with_children$year, cbind(women_df_with_children$kids_HS_2534, 
-                                           women_df_with_children$kids_BAp_2534), 
+matplot(women_df_with_children$year, cbind(women_df_with_children$kids_HS_2534*100, 
+                                           women_df_with_children$kids_BAp_2534*100), 
         type = "l", lty = 1,lwd=3, 
         col = c("plum", "purple"), xlab = "Year", 
-        ylab = "Marriage Rate", main = "Marriage Rates for Women - With Children",
-        ylim = c(0,1))
+        ylab = "Marriage Rate (%)", main = "Marriage Rates for Women - With Children",
+        ylim = c(0,100))
 grid(nx = NULL, ny = NULL,
      lty = 1,
      col = "gray", 
@@ -154,12 +155,12 @@ legend("bottomright", legend = c("High School or Less",
 
 ```{r}
 # Plot marriage rates for women without children
-matplot(women_df_without_children$year, cbind(women_df_without_children$nokids_HS_2534, 
-                                           women_df_without_children$nokids_BAp_2534), 
+matplot(women_df_without_children$year, cbind(women_df_without_children$nokids_HS_2534*100, 
+                                           women_df_without_children$nokids_BAp_2534*100), 
         type = "l", lty = 1,lwd=3, 
         col = c("plum", "purple"), xlab = "Year", 
-        ylab = "Marriage Rate", main = "Marriage Rates for Women - Without Children",
-        ylim = c(0,1))
+        ylab = "Marriage Rate (%)", main = "Marriage Rates for Women - Without Children",
+        ylim = c(0,100))
 grid(nx = NULL, ny = NULL,
      lty = 1,
      col = "gray", 
@@ -192,13 +193,13 @@ divorce_edu_df <- divorce_edu_df[
 
 ```{r}
 # Divorce Plot
-matplot(divorce_edu_df$year, cbind(divorce_edu_df$HS_3544, 
-                                   divorce_edu_df$SC_3544,
-                                   divorce_edu_df$BAp_3544), 
+matplot(divorce_edu_df$year, cbind(divorce_edu_df$HS_3544*100, 
+                                   divorce_edu_df$SC_3544*100,
+                                   divorce_edu_df$BAp_3544*100), 
         type = "l", lty = 1,lwd=3, 
         col = c("turquoise", "blue", "lightblue"), xlab = "Year", 
-        ylab = "Divorce Rate", main = "Divorce Rates by Education - Ages 35-44",
-        ylim = c(0,0.25))
+        ylab = "Divorce Rate (%)", main = "Divorce Rates by Education - Ages 35-44",
+        ylim = c(0,25))
 grid(nx = NULL, ny = NULL,
      lty = 1,
      col = "gray", 
@@ -209,3 +210,8 @@ legend("topleft", legend = c("High School or Less",
        col = c("turquoise", "blue", "lightblue"), 
        lty = 1, lwd=3)
 ```
+
+## Comments on Reproducibility
+
+To my eye, these figures match (or very closely match) those published in the original article. These figures were simple to reproduce and the GitHub repo provided by FiveThirtyEight clearly describes all column names. Cleaning procedures were not described, but the data does not appear to need much cleaning (other than dropping na's). All in all, very little data processing was required. 
+
