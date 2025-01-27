@@ -10,6 +10,15 @@ The replication of the FiveThirtyEight analysis can be found as the R Markdown f
 `Platform: aarch64-apple-darwin20`
 `Running under: macOS Sequoia 15.1.1`
 
+This notebook uses R Markdown and can be executed in [RStudio](https://posit.co/download/rstudio-desktop/).
+
+## Getting Started
+1. Clone the repository
+2. Open `Final_Proj.Rmd`
+3. Execute the notebook (top right corner of the screen: `Run` then `Run All`)
+
+The notebook can be converted into a pdf using `Knit`. This pdf is included in the root of the folder: `Final_Proj.pdf`.
+
 # Data
 
 (Content revised from [FiveThirtyEight ReadMe](https://github.com/fivethirtyeight/data/tree/master/marriage) ).
