@@ -12,7 +12,14 @@ The replication of the FiveThirtyEight analysis can be found as the R Markdown f
 `Platform: aarch64-apple-darwin20`
 `Running under: macOS Sequoia 15.1.1`
 
-This notebook uses R Markdown and can be executed in [RStudio](https://posit.co/download/rstudio-desktop/).
+This notebook uses R Markdown and can be executed in [RStudio](https://posit.co/download/rstudio-desktop/). Dependencies for R Markdown must be installed. If not already installed, run the following to install:
+
+1. `install.packages("rmarkdown", dep = TRUE)`
+2. `tinytex::install_tinytex()`
+3. `install.packages("knitr")`
+
+More information on running R Markdown files in RStudio can be found [here](https://rmarkdown.rstudio.com/lesson-1.html).
+
 
 ## Getting Started
 1. Clone the repository
