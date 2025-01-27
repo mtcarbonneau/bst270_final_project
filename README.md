@@ -1,5 +1,15 @@
 # BST270 Final Project
 
+# Objective 
+Reproduce several figures in the FiveThirtyEight article [Marriage Isn’t Dead — Yet](http://fivethirtyeight.com/features/marriage-isnt-dead-yet/).
+
+# To Run
+The replication of the FiveThirtyEight analysis can be found as the R Markdown file `Final_Proj.Rmd` in the root of the repository. The project can be run entirely in base R and was created using the following specifications:
+
+`R version 4.4.2 (2024-10-31)`
+`Platform: aarch64-apple-darwin20`
+`Running under: macOS Sequoia 15.1.1`
+
 # Data
 
 (Content revised from [FiveThirtyEight ReadMe](https://github.com/fivethirtyeight/data/tree/master/marriage) ).
@@ -23,12 +33,3 @@ Header | Description
 `Hisp` | Hispanic of any race
 `nokids_all` | No own children living at home
 `kids_all` | At least one own child living at home
-
-# To Run
-The replication of the FiveThirtyEight analysis can be found as the R Markdown file `Final_Proj.Rmd`. 
-
-Code was run with the following specifications: 
-
-`R version 4.4.2 (2024-10-31)`
-`Platform: aarch64-apple-darwin20`
-`Running under: macOS Sequoia 15.1.1`
