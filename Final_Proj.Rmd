@@ -213,5 +213,5 @@ legend("topleft", legend = c("High School or Less",
 
 ## Comments on Reproducibility
 
-To my eye, these figures match (or very closely match) those published in the original article. These figures were simple to reproduce and the GitHub repo provided by FiveThirtyEight clearly describes all column names. Cleaning procedures were not described, but the data does not appear to need much cleaning (other than dropping na's). All in all, very little data processing was required. 
+To my eye, these figures match (or very closely match) those published in the original article. These figures were simple to reproduce and the GitHub repo provided by FiveThirtyEight clearly describes all column names. Cleaning procedures were not described, but the data does not appear to need much cleaning (other than dropping na's). All in all, very little data processing was required and was detailed in the original project ReadMe. 
 
